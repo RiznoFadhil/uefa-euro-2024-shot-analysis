@@ -153,9 +153,9 @@ This layered approach reflects real-world sports analytics pipelines where analy
 
 ## 👤 Author
 
-Rizno Fadhil
-Statistics & Data Science Graduate — IPB University
-Focus Areas: Data Science, Performance Analytics, Sports Analytics
+# Rizno Fadhil
+# Statistics & Data Science Graduate — IPB University
+# Focus Areas: Data Science, Performance Analytics, Sports Analytics
 
-Portfolio: [https://bit.ly/RiznoFadhil_DataPortfolio](https://bit.ly/RiznoFadhil_DataPortfolio)
-LinkedIn: [http://www.linkedin.com/in/rizno-fadhil](http://www.linkedin.com/in/rizno-fadhil)
+# Portfolio: [https://bit.ly/RiznoFadhil_DataPortfolio](https://bit.ly/RiznoFadhil_DataPortfolio)
+# LinkedIn: [http://www.linkedin.com/in/rizno-fadhil](http://www.linkedin.com/in/rizno-fadhil)
