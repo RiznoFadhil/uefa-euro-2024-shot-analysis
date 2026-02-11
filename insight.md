@@ -20,55 +20,15 @@ Even though Germany had **more total shots (23)** than Spain (19), the quality o
 
 ---
 
-# 2️⃣ Top Teams by Total xG — Attacking Volume
+# 2️⃣ Shot and xG Analysis - Tournament-based
 
 ## 🔎 Main insight
+
+![Total shots](insight_images/top_total_shots.png)
 
 ![Total xG](insight_images/top_total_xG.png)
 
-Portugal leads the total xG significantly (~14.7), followed by France, Spain, and England.
-
-### What does it means?
-
-Total xG = **volume of attacks + consistency of creating chances**.
-
-### Observation:
-
-* Portugal is the most aggressive attacking team.
-* Spain and England have almost the same xG total → maybe similar offensive performance.
-* Netherlands, Turkey, Austria, and Croatia are in the '**second tier**'.
-
-👉 Portugal will likely play a style of play:
-
-* high possession
-* lots of build-up
-* high shooting frequency
-
-But important:
-👉 High total xG ≠ good finishing.
-
----
-
-# 3️⃣ Shot Quality (Average xG per Shot)
-
-## 🔎 Main insight
-
-![Total xG](insight_images/top_avg_xG.png)
-
-Team with the best 'shot quality':
-
-🥇 Portugal
-🥈 Slovenia
-🥉 Georgia
-
-🏅 Switzerland & Croatia
-
-Spain **isn't in top 10 for shot quality** although they're **third** in total xG.
-That means Spain created many chances and relies more on sustained attacking volume rather than elite shot quality per attempt.
-
----
-
-# 4️⃣ Total xG vs Average xG (top 10)
+![Average xG](insight_images/top_avg_xG.png)
 
 ![Total vs average xG](insight_images/total_vs_avg_xG.png)
 
