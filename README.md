@@ -3,7 +3,7 @@
 ## 📌 Project Overview
 
 This project explores shooting patterns and attacking performance during **UEFA EURO 2024** using open event data from StatsBomb.
-The analysis progresses from **single-match spatial analysis** to **tournament-level trend evaluation**, combining data science techniques with football analytics methodology.
+The analysis progresses from **single-match spatial analysis**, in this case **Spain** vs **Germany** match in Quarterfinal, to **tournament-level trend evaluation**, combining data science techniques with football analytics methodology.
 
 The goal of this project is to demonstrate how data analysis, visualization, and feature engineering can be applied to sports analytics — particularly in evaluating shot quality, attacking structure, and team performance profiles.
 
@@ -44,7 +44,7 @@ The goal of this project is to demonstrate how data analysis, visualization, and
 
 ---
 
-# 🔵 Match-Level Shot Analysis
+# 🔵 Team's Shot Analysis on Match-Level
 
 ### Data Preparation
 
@@ -68,7 +68,7 @@ This step reveals attacking structure, preferred shooting zones, and finishing e
 
 ---
 
-# 🟣 Match Comparison Analysis
+# 🟣 Shot Analysis in a Match (Spain vs Germany in Quarterfinal)
 
 ### Method
 
@@ -91,7 +91,7 @@ This mirrors real workflows used in scouting and tactical analysis.
 
 ---
 
-# 🟢 Tournament Trends Analysis (EURO 2024)
+# 🟢 Tournament Trends Analysis
 
 ### Objective
 
@@ -155,7 +155,7 @@ This layered approach reflects real-world sports analytics pipelines where analy
 
 Rizno Fadhil
 * Statistics & Data Science Graduate — IPB University
-* Focus Areas: Data Science, Performance Analytics, Sports Analytics
+* Focus Areas: Data Science, Sports Analytics, Performance Analytics
 
 * Portfolio: [https://bit.ly/RiznoFadhil_DataPortfolio](https://bit.ly/RiznoFadhil_DataPortfolio)
 * LinkedIn: [http://www.linkedin.com/in/rizno-fadhil](http://www.linkedin.com/in/rizno-fadhil)
