@@ -2,43 +2,44 @@
 
 ## 📌 Project Overview
 
-This project analyzes attacking behaviour and shot quality during **UEFA EURO 2024** using open event data from StatsBomb.
+This project explores attacking performance during **UEFA EURO 2024** using StatsBomb Open Data.
+The analysis moves from **single-match spatial analysis** (Spain vs Germany — Quarterfinal) toward **tournament-level attacking trends**, combining data science techniques with football analytics methodology.
 
-The workflow progresses from **single-match spatial analysis** — focusing on the Spain vs Germany Quarterfinal — toward **tournament-level attacking trends**, demonstrating how data science methods can be applied within a football analytics context.
+Rather than only measuring goals, this project evaluates:
 
-Rather than only counting shots or goals, this project evaluates:
+* Shot volume
+* Expected goals (xG)
+* Shot quality (average xG)
+* Attacking efficiency vs volume trade-off
 
-* spatial shot distribution
-* expected goals (xG)
-* attacking efficiency
-* team tactical profiles
-
-The objective is to translate raw event data into **interpretable football insights**, similar to real analyst workflows used in performance analysis and scouting environments.
+The objective is to demonstrate how event data can be translated into interpretable tactical insights using reproducible data science workflows.
 
 ---
 
 ## 🎯 Objectives
 
 * Analyze shot locations and expected goals (xG)
-* Build football-style spatial visualizations
-* Compare attacking structures between teams
-* Evaluate tournament-wide attacking philosophies
-* Demonstrate an end-to-end sports analytics workflow
+* Build spatial visualizations used in football analytics
+* Compare attacking structure between teams
+* Identify tournament-wide attacking profiles
+* Translate quantitative analysis into football insights
 
 ---
 
 ## 📊 Dataset
 
-**Source:** StatsBomb Open Data
-**Competition:** UEFA EURO 2024
-**Data Type:** Event-level match data
+* Source: **StatsBomb Open Data**
+* Competition: UEFA EURO 2024
+* Data Type: Event-level match data
 
-Key variables used:
+### Key Variables Used
 
-* Shot coordinates (x, y)
-* Shot outcome
+* Shot location (x, y coordinates)
 * Expected Goals (xG)
-* Team and player metadata
+* Shot outcome
+* Team metadata
+
+Data is accessed directly via `statsbombpy`, so no manual download is required.
 
 ---
 
@@ -49,215 +50,224 @@ Key variables used:
 * NumPy
 * Matplotlib
 * StatsBombPy
-* Google Colab
+* Google Colab / Jupyter Notebook
 
 ---
 
-# 🔵 Match-Level Analysis — Spain Shot Map
+## 📂 Project Structure
 
-## Method
-
-* Extracted shot events from match data
-* Engineered spatial features:
-
-  * pitch coordinates (x, y)
-  * goal indicator (`is_goal`)
-* Built custom StatsBomb pitch visualization
-
-Circle size represents shot quality (xG).
-
-## Analytical Insight
-
-The shot map highlights how Spain structured their attacking phases:
-
-* High concentration of shots inside the penalty area
-* Preference for central attacking zones
-* Efficient chance creation despite lower shot volume
-
-Spatial visualization reveals attacking intent that traditional statistics alone cannot capture.
+```
+euro2024-shot-analysis/
+│
+├── insight_images/
+│   ├── shot_map_qf.png
+│   ├── top_total_shots.png
+│   ├── top_total_xG.png
+│   ├── top_avg_xG.png
+│   └── total_vs_avg_xG.png
+│
+├── notebooks/
+├── main.py
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-# 🟣 Comparative Match Analysis — Spain vs Germany (Quarterfinal)
+# 🔵 Match-Level Analysis — Shot Map (Spain vs Germany)
 
-## Method
+## Methodology
 
-To compare both teams in a single visual frame:
+* Extract shot events from match data
+* Engineer spatial features:
 
-* Germany’s coordinates were mirrored
-* Both teams plotted on the same pitch
-* Summary metrics calculated:
+  * x, y coordinates
+  * goal indicator
+* Mirror coordinates for opposing team
+* Plot both teams on a single pitch
 
-  * total shots
-  * goals
-  * total xG
+## Key Insight
 
-## Insight
+![Shot Map for Spain vs Germany](insight_images/shot_map_qf.png)
 
-Although Germany produced **more total shots**, Spain generated more dangerous opportunities:
+Although Germany attempted **more total shots**, Spain created more dangerous attempts inside the penalty area.
 
-* Spain’s attempts were concentrated near goal
-* Germany relied more on long-distance shots
-* Spain scored **2 goals from 1.53 xG**, while Germany scored **1 from 1.63 xG**
+* Spain: 2 goals from 1.53 xG
+* Germany: 1 goal from 1.63 xG
 
-👉 What this means:
-
-Spain demonstrated a **high-value attacking structure**, prioritizing shot quality over volume — a pattern that later appears in tournament-level trends.
+Spain generated fewer attempts but with higher-quality shot locations, suggesting a more efficient attacking structure.
 
 ---
 
-# 🟢 Tournament Trends Analysis — EURO 2024
+# 🟣 Tournament-Level Attacking Trends
 
-## Analytical Pipeline
+The analysis expands from single-match insight into competition-wide patterns by aggregating team statistics.
 
-1. Collected event data from all matches
-2. Filtered shot events
-3. Built team-level aggregates:
+## Metrics Used
 
-* Total Shots (Volume)
-* Goals
-* Total xG (Production)
-* Average xG per Shot (Shot Quality)
+* Total Shots → attacking volume
+* Total xG → attacking output
+* Average xG → shot quality
 
 ---
 
-## 📈 Key Visualizations
+## 📊 Shot Volume Analysis
 
-* Top Teams by Total Shots
 ![Total shots](insight_images/top_total_shots.png)
-* Top Teams by Total xG
+
+Spain recorded the highest shot volume (123), followed by France (101) and Germany & Portugal (95).
+
+High shot volume does not necessarily imply elite chance creation — teams can generate many low-probability attempts.
+
+---
+
+## 📊 Total xG Analysis
+
 ![Total xG](insight_images/top_total_xG.png)
-* Shot Quality Ranking (Avg xG)
+
+Portugal led the tournament in total xG, showing a strong attacking output supported by both volume and quality.
+
+France also generated high xG relative to their shot volume, indicating efficient chance creation.
+
+---
+
+## 📊 Average xG (Shot Quality)
+
 ![Average xG](insight_images/top_avg_xG.png)
-* Combined Chart: Total xG vs Average xG
+
+Average xG highlights teams that prioritize high-value opportunities:
+
+* Portugal and Switzerland ranked among the highest
+* Spain ranked lower despite leading total shots
+
+This suggests contrasting attacking philosophies between sustained pressure and selective chance creation.
+
+---
+
+## 📊 Total vs Average xG Relationship
+
 ![Total vs average xG](insight_images/total_vs_avg_xG.png)
 
-These visualizations allow comparison between **attacking volume** and **chance quality**.
+Key attacking profiles observed:
+
+### Spain — High Volume, Lower Efficiency
+
+* Highest total shots
+* Moderate total xG
+* Lower average xG
+
+Spain relied on sustained attacking pressure rather than elite shot selection.
 
 ---
 
-# 🧠 Some Interesting Interpretation
+### France vs Germany — Similar Volume, Different Quality
 
-## 🇪🇸 Spain — High-Volume, Low-Efficiency Attack
-
-Spain recorded:
-
-* **123 total shots** (highest in tournament)
-* **10.57 total xG**
-* **0.086 average xG per shot**
-
-Despite sustained attacking pressure, Spain generated relatively lower-quality chances compared to elite teams.
-
-👉 Tactical interpretation:
-
-Spain relied on **continuous possession and repeated attempts**, rather than elite shot selection.
+France generated significantly more total xG than Germany despite similar shot volume, suggesting better chance construction.
 
 ---
 
-## Portugal — Elite Balanced Attack
-
-Portugal stands out as the tournament outlier:
-
-* **14.71 total xG** (highest)
-* **0.154 average xG** (highest)
-* Top 5 in total shots
+### Portugal — High Volume, High Efficiency (Outlier)
 
 Portugal combined:
 
-* high attacking volume
-* elite shot quality
+* Top total xG
+* Elite average xG
+* High shot volume
 
-This indicates optimal shot selection and efficient attacking structure.
-
----
-
-## France vs Germany — Similar Volume, Different Quality
-
-* France: 101 shots → 12.11 xG
-* Germany: 95 shots → 8.72 xG
-
-Although volume is similar, France generated significantly more high-value chances.
-
-👉 Suggests stronger positional play or shot selection efficiency.
+This makes them the most balanced attacking team in the tournament.
 
 ---
 
-## Netherlands & Turkey — Volume Without Elite Output
+### Switzerland — Low Volume, High Efficiency
 
-Both teams produced high shot counts:
-
-* Netherlands: 83 shots
-* Turkey: 72 shots
-
-However, lower average xG indicates many attempts came from sub-optimal shooting locations.
+Switzerland produced fewer shots but maintained one of the highest average xG values, highlighting a selective attacking approach.
 
 ---
 
-## Switzerland — Low Volume, High Efficiency
+### Netherlands & Turkey — Volume without Elite Output
 
-Switzerland produced only:
-
-* 62 shots
-  but achieved:
-
-* 8.48 total xG
-
-* 0.137 average xG (Top 4)
-
-Compared to Spain:
-
-* Spain generated twice as many shots
-* Switzerland produced higher-quality opportunities
-
-👉 Indicates a **selective attacking approach**, focusing on elite chances.
+Both teams generated many attempts but lower average xG, indicating less optimal shot selection.
 
 ---
 
 # 📈 Analytical Framework
 
-This project follows a layered analyst workflow:
+This project follows a layered sports analytics workflow:
 
 ```
-Match-Level Spatial Analysis
-        ↓
-Team Comparison
-        ↓
-Tournament Trend Evaluation
+Match Analysis
+      ↓
+Comparative Analysis
+      ↓
+Tournament Trend Analysis
 ```
 
-The structure reflects real-world sports analytics pipelines where micro-level observations inform macro-level conclusions.
+This mirrors real-world analyst pipelines where micro-level spatial analysis scales into macro-level performance evaluation.
 
 ---
 
-# 🧠 Key Takeaways
+## 🧠 Key Takeaways
 
-* Attacking strength is not defined by volume alone.
-* xG helps separate **shot quantity** from **shot quality**.
-* Spatial analysis provides tactical context beyond raw statistics.
-* Different attacking identities emerge across teams:
-
-  * Volume-driven (Spain)
-  * Elite-balanced (Portugal)
-  * Selective efficiency (Switzerland)
+* Attacking strength is not defined solely by total xG.
+* Shot quality (average xG) reveals tactical decision-making.
+* Spatial visualization improves interpretability of event data.
+* Combining volume and efficiency metrics uncovers distinct attacking styles.
 
 ---
 
-# 🚀 Future Extensions
+## ⚙️ Installation & Setup
 
-Planned research expansions:
+### Clone Repository
+
+```bash
+git clone https://github.com/RiznoFadhil/euro2024-shot-analysis.git
+cd euro2024-shot-analysis
+```
+
+### Create Virtual Environment (Recommended)
+
+Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+MacOS / Linux:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Project
+
+```bash
+python main.py
+```
+
+Tested on **Python 3.10+**
+
+---
+
+## 🚀 Future Extensions
 
 * Player-level shooting profiles
 * Shot density heatmaps
-* Team attacking style clustering
+* Attacking style clustering
 * Cross-competition comparison
-* Basketball analytics adaptation (future project)
 
 ---
 
-# 👤 Author
+## 👤 Author
 
-**Rizno Fadhil**
-Statistics & Data Science Graduate — IPB University
+**Rizno Fadhil** | Statistics & Data Science Graduate — IPB University
 
 Focus Areas:
 
@@ -265,5 +275,4 @@ Focus Areas:
 * Sports Analytics
 * Performance Analytics
 
-Portfolio: [https://bit.ly/RiznoFadhil_DataPortfolio](https://bit.ly/RiznoFadhil_DataPortfolio)
-LinkedIn: [http://www.linkedin.com/in/rizno-fadhil](http://www.linkedin.com/in/rizno-fadhil)
+Portfolio: [https://bit.ly/RiznoFadhil_DataPortfolio](https://bit.ly/RiznoFadhil_DataPortfolio) | LinkedIn: [http://www.linkedin.com/in/rizno-fadhil](http://www.linkedin.com/in/rizno-fadhil)
